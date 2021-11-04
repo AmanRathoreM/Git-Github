@@ -1,3 +1,4 @@
+<!-- Date 04-11-2021 -->
 # <h1 style="text-align:center; font-size:360%; font-family:Game Of Squids;color:#4A3E76;"><em>Git & GitHub</em></h1>
 
 ##### These tutorials are watched from [**_Udemy_**](https://www.udemy.com/ "Click here to checkout Udemy Website") website from [**_The Git & Github Bootcamp_**](https://www.udemy.com/course/git-and-github-bootcamp/ "Click here to check out Course")
@@ -13,6 +14,8 @@
 ---
 
 ---
+
+<!-- Date 04-11-2021 -->
 
 ## Installation & Setup
 
@@ -111,4 +114,29 @@ git status
 
 <!-- > Note: `-` is used when we need to modify a command's behavior. -->
 
-<!-- ## The Very Basics Of Git Adding & Committing -->
+---
+<!-- Date 04-11-2021 -->
+
+## The Very Basics Of Git Adding & Committing
+
+To create a new git repository use below command this is something you do once per project.  Initialize the repo in the top-level folder containing your project:
+```git
+git init
+```
+Git status gives information on the current status of a git repository and its contents.
+```git
+git status
+```
+Use git add to add specific files to the staging area.  Separate files with spaces to add multiple at once. You can use `git add .` to stage all changes at once.
+```git
+git add file1 file2
+```
+Use below given command to commit changes on git. The -m flag allows us to pass in an inline commit message, rather than launching a text editor. We'll learn more about writing good commit messages later on.
+```git
+git commit -m "Your message which will be treated as a Git commit"
+```
+To see which user committed which thing when you can use the below command:
+```git
+git log
+```
+
