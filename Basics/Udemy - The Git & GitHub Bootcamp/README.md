@@ -140,3 +140,64 @@ To see which user committed which thing when you can use the below command:
 git log
 ```
 
+<!-- Date 05-11-2021 -->
+
+## Commits In Detail (And Related Topics)
+
+Use below command to configure git with [VS Code](https://code.visualstudio.com/) text editor:
+```git
+git config --global core.editor "code --wait"
+```
+
+Use below command to print all the commits in oneline(with short explanation):
+```git
+git log --oneline
+```
+
+Use below command to edit stuff in a git commit which is just made now, It will not work if you made a mistake or want to edit on a commit which is been made before 1 commit:
+```git
+git commit --amend
+```
+
+Use below command instead of using `git add .` and `git commit`, the below will automatically commit all your stuff at once:
+```git
+git commit -a
+```
+
+Use below command to create a `.gitignore` file, which is used to ignore some of the files or folders:
+```git
+touch .gitignore
+```
+<!-- Date 05-11-2021 -->
+
+## Working With Branches
+
+Use below command to see all branches of your the repository:
+```git
+git branch
+```
+
+Use below command to create a branch in your repository, note that **branch name should not include any spaces**:
+```git
+git branch branch_name
+```
+
+Use below command to switch branches in your repository:
+```git
+git switch branch_name
+```
+
+Use below command to switch and create branch in single line of code in your repository:
+```git
+git switch -c branch_name
+```
+
+Use below command to delete a branch in your repository:
+```git
+git branch -D branch_name
+```
+
+Use below command to rename a branch in your repository. Make sure that you are in the branch you want to rename:
+```git
+git branch -m new_name_of_branch
+```
