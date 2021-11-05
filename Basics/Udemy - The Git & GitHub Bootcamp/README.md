@@ -140,6 +140,7 @@ To see which user committed which thing when you can use the below command:
 git log
 ```
 
+---
 <!-- Date 05-11-2021 -->
 
 ## Commits In Detail (And Related Topics)
@@ -168,6 +169,8 @@ Use below command to create a `.gitignore` file, which is used to ignore some of
 ```git
 touch .gitignore
 ```
+
+---
 <!-- Date 05-11-2021 -->
 
 ## Working With Branches
