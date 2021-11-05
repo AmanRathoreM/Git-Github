@@ -204,3 +204,28 @@ Use below command to rename a branch in your repository. Make sure that you are 
 ```git
 git branch -m new_name_of_branch
 ```
+
+---
+
+<!-- Date 05-11-2021 -->
+
+## Merging Branches
+
+#### Fast-Forward Branching
+
+Use below command to merge another branch into the current branch.:
+
+```git
+git merge name_of_branch_to_merge_in
+```
+
+> Note: Not all merges are **fast-forward** merges, The branches which does not conflict with each other at all can easily preform **fast-forward**. There are several [different types of commits](https://www.geeksforgeeks.org/merge-strategies-in-git/) like Recursive Merge etc. 
+
+#### Resolving Conflicts
+
+Whenever you encounter merge conflicts, follow the following to encounter them:
+- Open up the file(s) with merge conflicts
+- Edit the file(s) to remove the conflicts. Decide which branch's content you want to keep in each conflict.  Or keep -the content from both.
+- Remove the conflict "markers" in the document
+- Add your changes and then make a commit!
+- Add your changes and then make a commit!
