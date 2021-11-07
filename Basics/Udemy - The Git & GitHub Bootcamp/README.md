@@ -325,11 +325,10 @@ When you use multiple stashes in your repository you need to clear the stashes a
 ```git
 git stash drop stash@{1}
 ```
-> Note: in `git stash stash@{2}` *1* is the stash number.
+> Note: in `git stash stash@{1}` *1* is the stash number.
 
 If you want to clear-up everything in your stashes use the below command:
 
 ```git
 git stash clear
 ```
-> Note: in `git stash stash@{2}` *1* is the stash number.
