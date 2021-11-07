@@ -213,7 +213,7 @@ git branch -m new_name_of_branch
 
 #### Fast-Forward Branching
 
-Use below command to merge another branch into the current branch.:
+Use below command to merge another branch into the current branch:
 
 ```git
 git merge name_of_branch_to_merge_in
@@ -228,4 +228,108 @@ Whenever you encounter merge conflicts, follow the following to encounter them:
 - Edit the file(s) to remove the conflicts. Decide which branch's content you want to keep in each conflict.  Or keep -the content from both.
 - Remove the conflict "markers" in the document
 - Add your changes and then make a commit!
-- Add your changes and then make a commit!
+
+---
+<!-- Date 07-11-2021 -->
+
+## Comparing Changes With Git Diff
+
+Use below command to check the difference since the last commit and the current **un-staged** changes:
+
+```git
+git diff
+```
+
+Use below command to check the difference since the last commit and the current **staged and un-staged** changes:
+
+```git
+git diff HEAD
+```
+
+Use below command to check the difference since the last commit and the current **staged** changes:
+
+```git
+git diff --staged
+```
+> Note: You can also use `git diff --cached` instead of `git diff --staged`, but `--staged` looks more sensible.
+
+Use below command to check the difference **within a particular file** since the last commit and the current data:
+
+```git
+git diff file_name
+```
+
+Use below command to check the difference **between two different branches** since the last commit and the current data:
+
+```git
+git diff branch_1..branch_2
+```
+> Note: You can also use `git diff branch_1 branch_2` instead of `git diff branch_1..branch_2` they both mean ~same.
+
+Use below command to check the difference **between two different commits**(by using commit hashes) since the last commit and the current data:
+
+```git
+git diff 19264c5..482df4a
+```
+> Note: You can also use `git diff 19264c5 482df4a` instead of `git diff 19264c5..482df4a` they both mean ~same.
+>> Note: `19264c5` and `482df4a` are the commit's hash number.
+
+
+---
+
+<!-- Date 07-11-2021 -->
+
+## The Ins and Outs of Stashing
+
+Use below command to stash changes of your repository:
+
+```git
+git stash
+```
+>Note : You can also use `git stash save` instead of using `git stash`, as it may be an [Aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases) of `git stash save`.
+
+Use below command to get back the stash changes of your repository:
+
+```git
+git stash pop
+```
+
+Use below command to get back the stash changes of your repository, but note that the **stash will not become clean and you can still use it in another branches of your repository**:
+
+```git
+git stash apply
+```
+
+You can add multiple stashes in your repository and the will be in same order as the are stashed to view all stashes use below command:
+
+```git
+git stash list
+```
+
+
+If you have untracked files (files that you have never checked in to Git), they will not be included in the stash. Fortunately, you can use the `-u` option to tell git stash to include those untracked files:
+
+```git
+git stash -u
+```
+
+You can access any particular stash from your stashes by using the below command:
+
+```git
+git stash stash@{2}
+```
+> Note: in `git stash stash@{2}` *2* is the stash number.
+
+When you use multiple stashes in your repository you need to clear the stashes at some point before you mix-up all your stuff and to clear a stash from a stash list use the below command:
+
+```git
+git stash drop stash@{1}
+```
+> Note: in `git stash stash@{2}` *1* is the stash number.
+
+If you want to clear-up everything in your stashes use the below command:
+
+```git
+git stash clear
+```
+> Note: in `git stash stash@{2}` *1* is the stash number.
