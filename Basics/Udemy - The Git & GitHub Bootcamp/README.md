@@ -332,3 +332,77 @@ If you want to clear-up everything in your stashes use the below command:
 ```git
 git stash clear
 ```
+
+---
+
+<!-- Date 08-11-2021 -->
+
+## Undoing Changes & Time Traveling
+
+#### Git Checkout
+Use  the below command to travel back to a specific commit of your repository:
+```git
+git checkout 03f3a63
+```
+> Note: In `git checkout 03f3a63`, `03f3a63` is the **hash number** of the commit.
+
+Use  the below stated command to travel back to a particular number of commits back in your repository:
+```git
+git checkout Head~1
+```
+> Note: In `git checkout Head~1`, `1` is the number of how many commits you need to go back to.
+
+Use the below mentioned command to go to the head of your repository where you edited last commit:
+```git
+git switch -
+```
+
+Use the below mentioned command revert changes of a specific file of your branch from a specific commit:
+```git
+git checkout c57e697 file_name
+```
+> Note: In `git checkout c57e697 file_name`, `c57e697` is the **commit hash** you can also use `Head~3` instead of it 
+>> To revert the changes according to your last commit of branch you can us `--` instead of `c57e697` or `Head~3`.
+
+#### Git Restore
+To restore the file to the contents as they are in the HEAD, use below given command:
+```git
+git restore file_name
+```
+> **_Note: If you use `git restore file_name` the content of file specified is totally gone it cannot be back again._**
+
+To restore the file to the contents as they are in a specific commit, use below given command:
+```git
+git restore --source c57e697 file_name
+```
+> **_Note: If you use `git restore file_name` the content of file specified is totally gone it cannot be back again._**
+>> Note: In `git restore --source c57e697 file_name`, `c57e697` is the **commit hash** you can also use `Head~3` instead of it. 
+
+If you accidentally staged a file with sensitive information the to make it ub-staged, use below given command:
+```git
+git restore --staged file_name
+```
+
+#### Git Reset
+If you accidentally messed up the with your branch you can take back whole repo. back to a specific commit you made in past but, the commits made by you are gone, use below given command to do so:
+```git
+git reset c57e697
+```
+> Note: **Changes will not lose**, `git reset` will just delete the commits not change the file.
+>> You can branch make a branch and take changes with you.
+>>> In `git reset c57e697`, `c57e697` is the **commit hash** you can also use `Head~3` instead of it. 
+
+In order to change the file as well as delete the commits, use below given command:
+```git
+git reset --hard c57e697
+```
+> Note: _**You will lose changes**_, `git reset --hard` will delete the commits as well as change the file.
+>> In `git reset --hard c57e697`, `c57e697` is the **commit hash** you can also use `Head~3` instead of it. 
+
+#### Git Revert
+If you are collaborating on a project and if you want to continue your work from a previously made commits you can not use `git reset` or `git restore` to do so, as it can raise some serious problems/issues. So instead of using `git reset` or `git restore` you have to use the below command:
+```git
+git revert c57e697
+```
+> Note: In `git revert` will make another commit which will be the copy of commit `c57e697`, it will not delete the commits or there changes.
+>> In `git revert c57e697`, `c57e697` is the **commit hash** you can also use `Head~3` instead of it.
