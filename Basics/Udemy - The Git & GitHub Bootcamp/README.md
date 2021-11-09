@@ -406,3 +406,118 @@ git revert c57e697
 ```
 > Note: In `git revert` will make another commit which will be the copy of commit `c57e697`, it will not delete the commits or there changes.
 >> In `git revert c57e697`, `c57e697` is the **commit hash** you can also use `Head~3` instead of it.
+
+---
+
+<!-- Date 08-11-2021 -->
+
+## Github The Basics
+
+You can clone any repository whether or not it is on [GitHub](https://github.com/), by using th below command:
+```git
+git clone https://github.com/AmanRathoreM/Git-Github
+```
+> Note: In `git clone https://github.com/AmanRathoreM/Git-Github`, `https://github.com/AmanRathoreM/Git-Github` is a [url of a repository](https://github.com/AmanRathoreM/Git-Github) I need to clone.
+
+> Note: You can setup your local machine for coloration on [GitHub](https://github.com/) by seeing [GitHub docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+Use below command to view the existing remote repositories in your local git repository:
+```git
+git remote
+```
+
+Use below command to view the existing remote repositories info **in detail** :
+```git
+git remote -v
+```
+
+Use below command to view the existing remote repositories info **in detail** :
+```git
+git remote add name_of_remote_repository url_of_remote_repository
+```
+> Note: According to the git conventions name of the remote repository should be **origin**, but it is not necessary.
+
+Use below command to push your  code to a remote repository:
+```git
+git push name_of_remote_repository branch_name_you_want_to_push
+```
+> Note: You can also use just `git push` to push your current working branch to a remote repository.
+
+---
+
+<!-- Date 09-11-2021 -->
+
+## Fetching & Pulling
+
+#### Fetching
+
+Use the following command to fetch data from a remote repository:
+```git
+git fetch remote_repo_name branch_name_you_want_to_fetch
+```
+> Note: If you did not specify name of the remote repo the its default name will be taken as `origin`.
+
+#### Pulling
+
+You can also use below command to retrieve changes from a remote repository. Unlike `git fetch`, pull actually updates our HEAD branch with whatever changes are retrieved from the remote.
+```git
+git pull remote_repo_name branch_name_you_want_to_pull
+```
+> Note: If you did not specify name of the remote repo and name of the branch you want to pull from, their's default name will be taken as `origin` and _**name of the branch you are working**_ respectively.
+>> `git pull` can also result in [merge conflicts](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts).
+
+---
+
+<!-- Date 09-11-2021 -->
+
+## Github Grab Bag Odds & Ends
+
+> There is not much in this section but the point should be noted that you can also [host your website on GitHub](https://pages.github.com/) for free.
+
+---
+
+<!-- Date 09-11-2021 -->
+
+## The Power of Reflogs - Retrieving Lost Work
+
+In case you want to view full history of commits, merges, checkouts etc. of your repository you can use the following command:
+```git
+git reflog show HEAD
+```
+> Note: Logs file are stored only for 90 days by default, however you can change that period globally or locally.
+>> `HEAD` in `git reflog show HEAD` is just a reference to the command you can also use a branch name etc. to check it's logs.
+
+If you want to go back in the history not only of commits but also of merges, checkouts etc. of your repository you can use the following command:
+```git
+git checkout HEAD@{2}
+```
+> Note: You can get `HEAD@{2}` type of id when you run `git reflog show HEAD` which displays multiple `HEAD@{...}` with each having a unique information.
+>> You can also use `git reflog master@{one.week.ago}`, `git checkout bugfix@{2.days.ago}`, or `git diff main@{0} main@{yesterday}` to play with your stuff.
+
+Suppose you had hard rested an important work than by using the below command you can get your work back:
+```git
+git reset --hard master@{1}
+```
+> Note: `master@{1}` is just a reference to some commit, merge, checkout etc. happened in past in your repository.
+
+---
+
+<!-- Date 09-11-2021 -->
+
+## Writing Custom Git Aliases
+
+You can make your own custom git aliases by adding the following syntax in `.git/config` file:
+```git
+[alias]
+    s = status
+    l = log
+```
+
+You can also add a custom git alias from command-line by using the below syntax:
+```git
+git config --global alias.sb branch
+``` 
+> Note: in `git config --global alias.sb branch`, `sb` and `branch` are respectively the name of the alias and the command that alias will run.
+>> It is recommend to add alias from file as it is easier in making complex alias.
+
+> You can get more [pre-made aliases](https://github.com/GitAlias/gitalias) from internet.
